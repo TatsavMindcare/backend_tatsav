@@ -66,7 +66,7 @@ exports.sendContactMessage = async (req, res) => {
 `;
   const to = "tatsavmindcare@gmail.com";
   try {
-    sendEmail(to, name, queryrecieve);
+    await sendEmail(to, name, queryrecieve);
     // Send Email
     // await nodemailer.sendMail({
     //   from: process.env.EMAIL_USER,
@@ -89,7 +89,7 @@ exports.sendContactMessage = async (req, res) => {
   }
 };
 
-function sendEmail(to, subject, queryrecieve) {
+async function sendEmail(to, subject, queryrecieve) {
   return new Promise((resolve, reject) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
